@@ -34,15 +34,27 @@ test('generate a random number', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     let expected;
+    let expected2;
+    let expected3;
     
     
     //Act 
     // Call the function you're testing and set the result to a const
     const actual = randomNumber();
-    if (actual > 1 && actual < 20) {
+    if (actual >= 1 && actual <= 20) {
         expected = actual;
-    };
+    }
+    const actual2 = randomNumber();
+    if (actual2 >= 1 && actual2 <= 20) {
+        expected2 = actual2;
+    }
+    const actual3 = randomNumber();
+    if (actual3 >= 1 && actual3 <= 20) {
+        expected3 = actual3;
+    }
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.equal(actual, expected);
+    expect.equal(actual2, expected2);
+    expect.equal(actual3, expected3);
 });
