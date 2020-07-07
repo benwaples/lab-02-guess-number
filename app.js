@@ -15,15 +15,32 @@ const gamesLost = document.querySelector('.gamesLost');
 
 
 // initialize state
+let countDown = 4;
+let ticketToMars = 0;
 
 // set event listeners to update state and DOM 
+
+// toggle the game to display where to play
 getTicket.addEventListener('click', () => {
-    let ticketToMars = randomNumber();
+    ticketToMars = randomNumber();
     guessNumber.classList.remove('hidden');
     submitGuess.classList.remove('hidden');
     remainingGuesses.classList.remove('hidden');
+    remainingGuesses.textContent = `You have ${countDown} remaining guesses`;
     tooHighOrLow.classList.remove('hidden');
-    playAgain.classList.remove('hidden');
     getTicket.classList.add('hidden');
     console.log(ticketToMars)
 });
+
+//game play
+submitGuess.addEventListener('click', () => {
+    const attempt = Number(guessNumber.value);
+    let highOrLow = compareNumber(ticketToMars, attempt);
+    if (highOrLow === 0) {
+        tooHighOrLow.textContent = 'BOOM PACK YOUR BAGS';
+    } else if (highOrLow === -1) {
+        tooHighOrLow.textContent = 'Not going to mars with that... TOO LOW';
+    } else if (highOrLow === 1) {
+        tooHighOrLow.textContent = 'If the world depended on you going to mars, the world lost... TOO HIGH';
+    }
+})
