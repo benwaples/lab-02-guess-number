@@ -31,7 +31,7 @@ getTicket.addEventListener('click', () => {
     remainingGuesses.textContent = `You have ${countDown} remaining guesses`;
     tooHighOrLow.classList.remove('hidden');
     getTicket.classList.add('hidden');
-    console.log(ticketToMars)
+    console.log(ticketToMars);
 });
 
 //game play
@@ -60,7 +60,7 @@ submitGuess.addEventListener('click', () => {
         remainingGuesses.classList.add('hidden');
         submitGuess.classList.add('hidden');
         guessNumber.classList.add('hidden');
-        tooHighOrLow.classList.add('hidden');
+        tooHighOrLow.textContent = `you've lost!`;
         playAgain.classList.remove('hidden');
         countLosses ++;
         gamesLost.textContent = `You have lost ${countLosses} tickets`;
