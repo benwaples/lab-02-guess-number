@@ -39,6 +39,7 @@ submitGuess.addEventListener('click', () => {
     const attempt = Number(guessNumber.value);
     let highOrLow = compareNumber(ticketToMars, attempt);
     if (highOrLow === 0) {
+        // wins game. update ticket count and give reset button
         tooHighOrLow.textContent = 'BOOM PACK YOUR BAGS';
         remainingGuesses.classList.add('hidden');
         submitGuess.classList.add('hidden');
@@ -60,6 +61,8 @@ submitGuess.addEventListener('click', () => {
         submitGuess.classList.add('hidden');
         guessNumber.classList.add('hidden');
         playAgain.classList.remove('hidden');
+        countLosses ++;
+        gamesLost.textContent = `You have lost ${countLosses} tickets`;
         countDown = 4;
     }
     remainingGuesses.textContent = `You have ${countDown} remaining guesses`;
