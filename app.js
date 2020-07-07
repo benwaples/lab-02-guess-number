@@ -38,9 +38,24 @@ submitGuess.addEventListener('click', () => {
     let highOrLow = compareNumber(ticketToMars, attempt);
     if (highOrLow === 0) {
         tooHighOrLow.textContent = 'BOOM PACK YOUR BAGS';
+        // update the win/loss tab
+        remainingGuesses.classList.add('hidden');
+        submitGuess.classList.add('hidden');
+        guessNumber.classList.add('hidden');
+        playAgain.classList.remove('hidden');
     } else if (highOrLow === -1) {
         tooHighOrLow.textContent = 'Not going to mars with that... TOO LOW';
     } else if (highOrLow === 1) {
         tooHighOrLow.textContent = 'If the world depended on you going to mars, the world lost... TOO HIGH';
     }
-})
+    countDown --;
+    if (countDown === 0) {
+        alert('you\'re not an astronaught this time, feel free to try again');
+        return;
+        // reset game just like about and update win/loss tab
+    }
+    remainingGuesses.textContent = `You have ${countDown} remaining guesses`;
+});
+
+
+//make restart button
