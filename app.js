@@ -9,9 +9,9 @@ const guessNumber = document.querySelector('.guessNumber');
 const submitGuess = document.querySelector('.submitGuess');
 const remainingGuesses = document.querySelector('.remainingGuesses');
 const tooHighOrLow = document.querySelector('.tooHighOrLow');
-const playAgain = document.querySelector('.playAgain');
 const gamesWon = document.querySelector('.gamesWon');
 const gamesLost = document.querySelector('.gamesLost');
+const playAgain = document.querySelector('.playAgain');
 
 
 // initialize state
@@ -45,9 +45,9 @@ submitGuess.addEventListener('click', () => {
         submitGuess.classList.add('hidden');
         guessNumber.classList.add('hidden');
         playAgain.classList.remove('hidden');
+        tooHighOrLow.classList.add('hidden');
         countWins ++;
         gamesWon.textContent = `You have won ${countWins} tickets`;
-        countDown = 4;
     } else if (highOrLow === -1) {
         tooHighOrLow.textContent = 'Not going to mars with that... TOO LOW';
     } else if (highOrLow === 1) {
@@ -60,13 +60,18 @@ submitGuess.addEventListener('click', () => {
         remainingGuesses.classList.add('hidden');
         submitGuess.classList.add('hidden');
         guessNumber.classList.add('hidden');
+        tooHighOrLow.classList.add('hidden');
         playAgain.classList.remove('hidden');
         countLosses ++;
         gamesLost.textContent = `You have lost ${countLosses} tickets`;
-        countDown = 4;
     }
     remainingGuesses.textContent = `You have ${countDown} remaining guesses`;
 });
 
+//toggle for resetting the game to play again
+playAgain.addEventListener('click', () => {
+    getTicket.classList.remove('hidden');
+    playAgain.classList.add('hidden');
+    countDown = 4;
 
-//make restart button
+});
