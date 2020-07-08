@@ -13,23 +13,25 @@
 </head>
 
 <body>
-   <h1>Ticket to Mars</h1>
-   <p>Guess the number on your ticket and you can keep it and go to Mars for free!</p>
-   <p>instructions:
-       <ol>
-           <li>click the button "TICKET" to get a ticket with a random number</li>
-           <li>now you have 4 turns to guess what number is on your ticket (hint: the number is between 1 and 20)</li>
-           <li>don't worry, we will let you know if your guess is too high or too low compared to the hidden number</li>
-           <li>oh yeah, we are also keeping track of how many times you win... and lose!!! GOOD LUCK!!!!</li>
-       </ol>
-   </p>
-   <div class="gameMain">
+    <section class="mars">
+        <h1>Ticket to Mars</h1>
+        <p>Guess the number on your ticket and you can keep it and go to Mars for free!</p>
+        <p class="instructions">instructions:
+            <ol>
+                <li>click the button "TICKET" to get a ticket with a random number</li>
+                <li>now you have 4 turns to guess what number is on your ticket (hint: the number is between 1 and 20)</li>
+                <li>don't worry, we will let you know if your guess is too high or too low compared to the hidden number</li>
+                <li>oh yeah, we are also keeping track of how many times you win... and lose!!! GOOD LUCK!!!!</li>
+            </ol>
+        </p>
+    </section>
+   <section class="gameMain">
         <button class="getTicket">TICKET</button>
         <input class="guessNumber hidden" placeholder="Become an Astronaut" type="number">
-        <button class="submitGuess hidden">SUBMIT GUESS</button>
-        <span class="remainingGuesses hidden"> Remaining Guesses</span>
         <span class="tooHighOrLow hidden"></span>
-    </div>
+        <span class="remainingGuesses hidden"> Remaining Guesses</span>
+        <button class="submitGuess hidden">SUBMIT GUESS</button>
+   </section>
     <div class="winToLose">
         <button class="playAgain hidden">Try again?</button>
         <span class="gamesWon"></span>
